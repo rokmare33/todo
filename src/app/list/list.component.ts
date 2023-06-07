@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
+  tasks = [{
+    taskName: "Lavare i denti",
+    isCompleted: false
+  }];
+
 }
