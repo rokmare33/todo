@@ -11,6 +11,8 @@ export class FormComponent {
 
   private tasks = new ListComponent;
 
+  constructor() { }
+
   onSubmit(form: NgForm): void {
     console.log(form.controls['task'].value);
     this.tasks.tasks.push({

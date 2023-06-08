@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,18 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
+  constructor() { }
+
   tasks = [{
     taskName: "Lavare i denti",
     isCompleted: false
   }];
+
+  onSubmit(form: NgForm) {
+    this.tasks.push({
+      taskName: form.controls["task"].value,
+      isCompleted: false
+    })
+  }
 
 }
