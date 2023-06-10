@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AddElementService } from '../add-element.service';
 import { ListComponent } from '../list/list.component';
 
 @Component({
@@ -9,15 +10,16 @@ import { ListComponent } from '../list/list.component';
 })
 export class FormComponent {
 
-  private tasks = new ListComponent;
+  constructor(private newElement: AddElementService) { }
 
-  constructor() { }
 
-  onSubmit(form: NgForm): void {
-    console.log(form.controls['task'].value);
+  /*console.log(form.controls['task'].value);
     this.tasks.tasks.push({
       taskName: form.controls['task'].value,
       isCompleted: false
-    })
+    }) */
+  onSubmit(form: NgForm): void {
+    this.newElement.addToElement([{ taskName: form.controls["task"].value, isCompleted: false }]);
   }
+
 }

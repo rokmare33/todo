@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable, share } from 'rxjs';
+import { AddElementService } from '../add-element.service';
 
 @Component({
   selector: 'app-list',
@@ -8,18 +10,11 @@ import { NgForm } from '@angular/forms';
 })
 export class ListComponent {
 
-  constructor() { }
+  tasks: Observable<[{}]> = [{ taskName: "Lavare i denti", isCompleted: false }];
 
-  tasks = [{
-    taskName: "Lavare i denti",
-    isCompleted: false
-  }];
-
-  onSubmit(form: NgForm) {
-    this.tasks.push({
-      taskName: form.controls["task"].value,
-      isCompleted: false
-    })
+  constructor(private newElement: AddElementService) {
+    this.newElement.elementSubject.pipe(share());
   }
+
 
 }

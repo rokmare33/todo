@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let task of tasks">
+    <tr *ngFor="let task of tasks | async">
       <td>{{task.taskName}}</td>
       <td><input type="checkbox" id="myCheckbox"></td>
       <td><button class="btn btn-danger btn-sm">Delete</button></td>
