@@ -8,13 +8,15 @@ import { BehaviorSubject } from 'rxjs';
 
 
 export class AddElementService {
+  task = { taskName: "ciao", isCompleted: false }
+  private tasks = new BehaviorSubject(this.task)
+  getTask = this.tasks.asObservable();
 
-  private task: [{}] = [{}];
-  public elementSubject = new BehaviorSubject<[{}]>([{}]);
-
-  addToElement(task: [{}]) {
-    this.task.push(task);
-    this.elementSubject.next(this.task);
+  addToTask(task: {
+    taskName: string;
+    isCompleted: boolean;
+  }) {
+    this.tasks.next(task);
   };
 
   constructor() { }

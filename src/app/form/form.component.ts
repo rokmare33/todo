@@ -12,14 +12,16 @@ export class FormComponent {
 
   constructor(private newElement: AddElementService) { }
 
-
+  onSubmit(form: NgForm) {
+    console.log("ciao");
+  }
   /*console.log(form.controls['task'].value);
     this.tasks.tasks.push({
       taskName: form.controls['task'].value,
       isCompleted: false
     }) */
-  onSubmit(form: NgForm): void {
+  /*onSubmit(form: NgForm): void {
     this.newElement.addToElement([{ taskName: form.controls["task"].value, isCompleted: false }]);
   }
-
+*/
 }

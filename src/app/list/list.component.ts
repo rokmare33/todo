@@ -10,11 +10,11 @@ import { AddElementService } from '../add-element.service';
 })
 export class ListComponent {
 
-  tasks: Observable<[{}]> = [{ taskName: "Lavare i denti", isCompleted: false }];
 
-  constructor(private newElement: AddElementService) {
-    this.newElement.elementSubject.pipe(share());
-  }
-
+  /*
+    constructor(private newElement: AddElementService) {
+      this.newElement.elementSubject.pipe(share());
+    }
+  */
 
 }
